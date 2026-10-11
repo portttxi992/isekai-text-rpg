@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#15152b">
+<title>異界旅途：命運編年史</title>
+<style>
+:root{--bg:#101020;--panel:#1b1b35;--panel2:#242447;--gold:#f4ca78;--text:#f4f1ff;--muted:#b7b4d1;--purple:#9e8cff;--line:#3a385e}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top,#28234d 0%,var(--bg) 58%);color:var(--text);font-family:system-ui,-apple-system,"Noto Sans TC",sans-serif;min-height:100vh}
+.wrap{max-width:920px;margin:auto;padding:24px 16px 48px}.hero{text-align:center;padding:22px 8px 28px}.eyebrow{color:var(--gold);letter-spacing:.25em;font-size:.78rem}.hero h1{font-size:clamp(2rem,7vw,3.5rem);margin:10px 0;background:linear-gradient(90deg,#fff0b8,#c8bbff,#fff0b8);background-clip:text;color:transparent}.hero p{color:var(--muted);margin:0}
+.panel{background:linear-gradient(145deg,rgba(35,34,68,.96),rgba(22,22,43,.96));border:1px solid var(--line);border-radius:20px;padding:22px;box-shadow:0 18px 50px #0003;margin-bottom:18px}.panel h2{margin:0 0 14px;font-size:1.2rem;color:var(--gold)}label{display:block;font-weight:650;margin:14px 0 7px}input,select{width:100%;background:#101024;border:1px solid #4a4775;border-radius:11px;color:var(--text);padding:13px 14px;font:inherit;outline:none}input:focus,select:focus{border-color:var(--gold)}.jobs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.job{border:1px solid #45416d;border-radius:12px;padding:13px;background:#17172d;cursor:pointer;text-align:left;color:var(--text);font:inherit}.job strong{display:block;color:#ded7ff;margin-bottom:4px}.job small{color:var(--muted);line-height:1.45}.job.active{border-color:var(--gold);background:#302947;box-shadow:inset 0 0 0 1px #f4ca7855}.primary{width:100%;border:0;border-radius:12px;padding:14px 18px;margin-top:18px;background:linear-gradient(90deg,#f4ca78,#e9a95e);color:#20172a;font-weight:800;font-size:1rem;cursor:pointer}.primary:hover{filter:brightness(1.06)}.hidden{display:none!important}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:14px}.stat{background:#121229;border:1px solid var(--line);border-radius:12px;padding:10px;text-align:center}.stat span{display:block;color:var(--muted);font-size:.76rem}.stat b{display:block;margin-top:4px;color:var(--gold)}.story-title{font-size:1.35rem;margin:0 0 12px;color:#e0d8ff}.story-text{font-size:1.02rem;line-height:1.95;white-space:pre-line;color:#f0edff}.tag{display:inline-block;padding:5px 9px;border:1px solid #565080;border-radius:99px;color:#d7ceff;font-size:.78rem;margin:0 6px 10px 0}.choices{display:grid;gap:10px;margin-top:20px}.choice{width:100%;text-align:left;background:#22213f;color:var(--text);border:1px solid #494572;border-radius:13px;padding:14px;display:flex;gap:12px;align-items:flex-start;cursor:pointer;font:inherit;line-height:1.55}.choice:hover{border-color:var(--gold);background:#302b50}.num{flex:0 0 29px;height:29px;display:grid;place-items:center;border-radius:9px;background:#40365e;color:var(--gold);font-weight:800}.choice:disabled{opacity:.5;cursor:wait}.log{color:var(--muted);font-size:.9rem;line-height:1.7}.log p{border-left:2px solid #6f62a5;padding-left:12px;margin:10px 0}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:15px}.secondary{background:transparent;border:1px solid #5a5683;color:#ddd7ff;padding:10px 13px;border-radius:10px;cursor:pointer}.footer{text-align:center;color:#817eaa;font-size:.8rem;margin-top:26px}.notice{color:#c9c3e8;font-size:.88rem;margin-top:10px}@media(max-width:560px){.panel{padding:17px}.jobs{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}.wrap{padding:12px 12px 32px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="hero"><div class="eyebrow">ANOTHER WORLD · TEXT RPG</div><h1>異界旅途：命運編年史</h1><p>當命運的齒輪開始轉動，你的傳說將由自己寫下。</p></header>
+
+<section id="setup" class="panel">
+<h2>✦ 建立你的冒險者</h2>
+<label for="heroName">主角名稱</label><input id="heroName" maxlength="18" placeholder="輸入你的名字，例如：梅川內酷" value="">
+<label>選擇你的職業</label>
+<div class="jobs" id="jobs">
+<button type="button" class="job active" data-job="劍士"><strong>⚔️ 劍士</strong><small>近戰均衡，擅長正面突破。生命＋15，攻擊＋3。</small></button>
+<button type="button" class="job" data-job="魔法師"><strong>🔮 魔法師</strong><small>操縱元素魔法，爆發力強。魔力＋25，攻擊＋4。</small></button>
+<button type="button" class="job" data-job="遊俠"><strong>🏹 遊俠</strong><small>身手敏捷，擅長探索與遠程攻擊。敏捷＋5，攻擊＋2。</small></button>
+<button type="button" class="job" data-job="神官"><strong>✨ 神官</strong><small>受到神明眷顧，具備治癒能力。生命＋5，魔力＋15。</small></button>
+</div>
+<button type="button" id="startBtn" class="primary">踏入異世界</button>
+<div id="appStatus" class="notice">每次推進劇情都會提供四個選項。你的選擇會影響故事、能力與後續遭遇。</div>
+</section>
+
+<section id="game" class="hidden">
+<div class="stats">
+<div class="stat"><span>冒險者</span><b id="statName">—</b></div><div class="stat"><span>職業</span><b id="statJob">—</b></div><div class="stat"><span>生命值 HP</span><b id="statHp">—</b></div><div class="stat"><span>魔力 MP</span><b id="statMp">—</b></div>
+</div>
+<div class="panel">
+<div><span class="tag" id="chapterTag">序章</span><span class="tag" id="locationTag">？？？</span><span class="tag" id="levelTag">Lv.1</span></div>
+<h2 id="sceneTitle" class="story-title">故事開始</h2>
+<div id="storyText" class="story-text"></div>
+<div id="choices" class="choices"></div>
+<div class="actions"><button type="button" id="saveBtn" class="secondary">儲存進度</button><button type="button" id="loadBtn" class="secondary">讀取進度</button><button type="button" id="restartBtn" class="secondary">重新開始</button></div>
+<div id="saveNotice" class="notice"></div>
+</div>
+<div class="panel"><h2>📜 冒險紀錄</h2><div id="log" class="log"><p>你的故事即將展開……</p></div></div>
+</section>
+<div class="footer">單檔離線文字 RPG 原型 · 進度可儲存在目前瀏覽器</div>
+</div>
+<script>
+const jobButtons=[...document.querySelectorAll('.job')];
+let selectedJob='劍士', state=null;
+jobButtons.forEach(btn=>btn.addEventListener('click',()=>{selectedJob=btn.dataset.job;jobButtons.forEach(b=>b.classList.toggle('active',b===btn));document.getElementById('appStatus').textContent='已選擇職業：'+selectedJob+'。準備好就按「踏入異世界」。'}));
+
+const scenes={
+start:{chapter:'序章・異界召喚',location:'星落草原',title:'醒於星落草原',text:s=>`一陣耀眼白光過後，${s.name}在陌生的草原上醒來。夜空懸著兩輪月亮，遠方有一座漂浮在雲海中的城堡，藍色光點像螢火蟲般穿過草叢。\n\n一名戴著兜帽的少女站在不遠處，手裡握著一枚發光的水晶。「終於醒了……看來召喚儀式成功了。但這個世界正逐漸被魔物侵蝕，你必須在天亮前決定下一步。」\n\n她指向三個方向：森林深處傳來求救聲；石板路通往新手城鎮；而山丘頂端似乎有一道不祥的紫色光柱。`,choices:[['走進森林，尋找求救聲','forest'],['沿石板路前往新手城鎮','town'],['登上山丘，調查紫色光柱','hill'],['先和兜帽少女交談，弄清楚召喚真相','talk']]},
+forest:{chapter:'第一章・低語森林',location:'低語森林',title:'森林中的呼救聲',text:s=>`你撥開濃密的枝葉，循著呼救聲來到一處溪谷。一輛商旅馬車被哥布林包圍，車旁的護衛已經受傷。看見你出現，領頭的哥布林舉起生鏽短刀，其他魔物也慢慢逼近。\n\n林間有可供繞行的岩壁，馬車後方則傳來微弱的魔法光芒。你必須迅速行動。`,choices:[['拔出武器，正面迎戰哥布林','fight'],['利用岩壁地形，繞到魔物背後','sneak'],['先救治受傷的護衛','heal'],['大聲喝止魔物，嘗試談判或威嚇','bluff']]},
+town:{chapter:'第一章・初入城鎮',location:'新手城鎮・艾爾德',title:'冒險者的第一站',text:s=>`石板路盡頭是一座熱鬧的中世紀城鎮。尖塔、木造旅店與冒險者公會映入眼簾，空中還飄著販售烤肉串的小攤香氣。\n\n公會櫃檯的精靈接待員注意到你身上殘留的召喚魔力。「新面孔？如果想在這個世界活下去，可以先接任務、打聽情報，或者去市場準備裝備。」`,choices:[['前往冒險者公會登記，接下第一份任務','guild'],['到市場採買藥水與裝備','market'],['走進旅店，向旅人打聽世界情報','inn'],['追問精靈接待員關於召喚魔力的事','lore']]},
+hill:{chapter:'第一章・異象',location:'月影山丘',title:'紫色光柱',text:s=>`你登上山丘，紫色光柱正從一座破敗祭壇中央升起。地面刻著古老文字，雖然你從未學過這種語言，腦海卻隱約理解其中一句：『異界之人，將成為門的鑰匙。』\n\n祭壇旁有一只裂開的寶箱，光柱底下則浮著一面黑色鏡片。空氣中的魔力讓你的皮膚微微刺痛。`,choices:[['仔細解讀祭壇上的古代文字','runes'],['檢查裂開的寶箱','chest'],['伸手觸碰黑色鏡片','mirror'],['暫時撤退，回城尋找可靠的情報','town']]},
+talk:{chapter:'序章・召喚者',location:'星落草原',title:'兜帽少女的請求',text:s=>`少女摘下兜帽，露出一雙金色眼睛與尖長的精靈耳。「我叫露希亞，是一名見習召喚師。我原本想召喚一位能阻止魔王復甦的勇者，卻沒想到把你帶來了。」\n\n她遞來一枚刻有星形紋章的銅幣。「這能證明你是我的客人。請幫我確認附近的異常，等事情告一段落，我會告訴你更多真相。」`,choices:[['接受露希亞的委託','forest'],['詢問回到原本世界的方法','lore'],['要求她先展示召喚魔法','magic'],['婉拒委託，自己前往城鎮','town']]},
+fight:{chapter:'第一章・初戰',location:'低語森林',title:'刀光與魔物',text:s=>`你抓準空隙衝向哥布林群。短兵相接的瞬間，戰鬥本能讓你避開了第一記攻擊。幾番交鋒後，魔物被迫後退，商旅終於獲得喘息的機會。\n\n護衛向你道謝，並從包裹裡取出一瓶紅色藥水。遠處的林間小路似乎通往哥布林的巢穴。`,choices:[['接受藥水，護送商旅回城','town'],['追蹤哥布林，尋找牠們的巢穴','forest'],['詢問商旅最近的魔物異常','lore'],['在溪谷休息，整理裝備與傷勢','rest']]},
+sneak:{chapter:'第一章・奇襲',location:'低語森林',title:'從陰影中出手',text:s=>`你沿岩壁悄悄繞行，利用樹影掩護自己。哥布林完全沒注意到你的接近。你成功切斷牠們的退路，商旅護衛也趁機反擊，魔物很快四散逃走。\n\n護衛稱讚你的判斷，並告訴你最近森林深處出現了不自然的黑霧。`,choices:[['陪商旅返回城鎮','town'],['沿黑霧方向繼續探索','hill'],['請護衛教你幾招實用技巧','train'],['搜尋戰場，看看有沒有遺落物品','chest']]},
+heal:{chapter:'第一章・援助',location:'低語森林',title:'先救人，再戰鬥',text:s=>`你不顧逼近的魔物，先蹲下查看護衛的傷勢。你用隨身布料止血，並依照直覺引導體內的力量。柔和的光芒短暫亮起，護衛終於能重新站穩。\n\n受到鼓舞的商旅一同反擊，哥布林被迫撤退。護衛感激地說，城鎮教堂或許能幫你理解這股力量。`,choices:[['陪護衛回城，前往教堂','town'],['追上撤退的哥布林','forest'],['請護衛介紹城鎮裡值得信任的人','inn'],['試著再次感受體內的力量','magic']]},
+bluff:{chapter:'第一章・膽識',location:'低語森林',title:'不戰而屈人之兵？',text:s=>`你踏前一步，故意讓武器反射月光，並用沉穩的聲音宣告：「現在離開，我可以當作沒看見你們。」領頭哥布林遲疑片刻，似乎被你身上陌生的魔力嚇到。\n\n牠們最後搶走幾袋糧食便逃入林中。商旅雖然損失貨物，仍對你感激不已，還給了你一枚可在城鎮兌換小額報酬的木牌。`,choices:[['護送商旅回城兌換木牌','town'],['跟蹤哥布林，找回糧食','forest'],['詢問商旅哪裡能找到工作','guild'],['在附近找個安全處休息','rest']]},
+guild:{chapter:'第一章・冒險者公會',location:'艾爾德公會',title:'新手冒險者登記',text:s=>`公會大廳裡滿是武器碰撞聲與冒險者的交談。櫃檯人員替你建立了臨時身分牌，並攤開三張委託：採集藥草、調查古井，或協助鐵匠搬運一批神秘礦石。\n\n「先從簡單任務累積經驗吧。這世界可不像故事書裡那麼仁慈。」`,choices:[['接下採集藥草的委託','forest'],['調查城鎮外的古井','well'],['前往鐵匠鋪，查看神秘礦石','smith'],['向公會老手請教戰鬥技巧','train']]},
+market:{chapter:'第一章・補給',location:'艾爾德市場',title:'旅途所需的準備',text:s=>`市場裡擺滿藥水、護符、武器與各式奇妙道具。你用有限的錢幣仔細比較價格，發現一位年邁商人正在低價出售一枚有裂痕的星形護符。他說這東西是從古代遺跡挖出來的。\n\n攤位另一端，一名工匠正招募人手，想搬運剛送到的魔晶石。`,choices:[['買下星形護符，研究它的力量','chest'],['詢問藥水的用途與安全使用方式','rest'],['去幫工匠搬運魔晶石','smith'],['保留錢幣，前往公會接任務','guild']]},
+inn:{chapter:'第一章・旅人傳聞',location:'銀鈴旅店',title:'酒館裡的傳聞',text:s=>`旅店壁爐燒得正旺，旅人們談論著北方遺跡的怪異光芒、森林裡的魔物，以及王都正在招募特殊人才的消息。一名披著旅行斗篷的女性聽見你詢問異界，悄悄放下一張褪色地圖。\n\n「如果你真的來自另一個世界，這張地圖或許會對你有用。」`,choices:[['收下地圖，前往標記的古井','well'],['請旅行者說明北方遺跡的傳聞','hill'],['向店主打聽王都的招募消息','lore'],['先休息一晚，恢復精神','rest']]},
+lore:{chapter:'第一章・世界的秘密',location:'艾爾德',title:'關於這個世界',text:s=>`你從零碎的談話中得知，這個世界名為「艾斯特拉」。人類、精靈、矮人與獸人共同生活在數個王國之間，而古老的封印正在逐漸衰弱。\n\n傳說每隔數百年，星空會選中一名來自異界的人。沒有人知道這是祝福，還是另一場災厄的開端。`,choices:[['前往公會，尋找與封印有關的任務','guild'],['到圖書館查閱異界召喚的記錄','library'],['尋找露希亞，要求她解釋更多','talk'],['去城外親自調查異常魔力','hill']]},
+magic:{chapter:'第一章・力量的輪廓',location:'星落草原',title:'第一次感受魔力',text:s=>`你閉上眼睛，試著捕捉空氣中看不見的流動。那股力量像一條細小河流，沿著手臂流向掌心，最後化成一點微光。露希亞驚訝地睜大眼睛：「你學得比我想像中快！」\n\n雖然還無法熟練使用，但你已經找到與這個世界連結的方法。`,choices:[['繼續練習，嘗試控制魔力','train'],['請露希亞教你一個簡單法術','lore'],['帶著新發現前往城鎮','town'],['用魔力感應山丘上的異常','hill']]},
+rest:{chapter:'旅途日常',location:'安全營地',title:'短暫休整',text:s=>`你找了一處安全的地方休息，整理行囊並確認身上的物品。遠方的城鎮亮起燈火，夜風帶來烤麵包與木柴的氣味。短暫的安寧讓你重新振作，也提醒你：冒險不只有戰鬥，還有每一次好好活下去的日常。`,choices:[['前往艾爾德城鎮','town'],['回到低語森林繼續探索','forest'],['整理思緒，練習基本技能','train'],['查看地圖，尋找古代遺跡線索','hill']]},
+train:{chapter:'成長篇・修行',location:'訓練場',title:'磨練自己的技藝',text:s=>`你花了一段時間練習基本動作。一次次重複雖然枯燥，卻讓你對自己的身體與力量更加熟悉。教練點點頭：「真正的強者，不是永遠不會失敗，而是懂得從每一次失誤中學習。」\n\n你感覺自己有所成長。`,choices:[['回公會接受更具挑戰的任務','guild'],['到市場尋找合適的裝備','market'],['前往森林測試自己的實力','forest'],['休息並回顧一路上的發現','rest']]},
+chest:{chapter:'探索篇・意外收穫',location:'遺跡邊緣',title:'被遺忘的寶箱',text:s=>`你小心地檢查寶箱，沒有觸發任何陷阱。箱內有幾枚古代錢幣、一片刻著星辰圖案的金屬薄片，以及一顆溫熱的藍色水晶。水晶在你靠近時微微閃爍，彷彿認得你的氣息。`,choices:[['帶走藍色水晶，前往圖書館研究','library'],['把金屬薄片交給鐵匠鑑定','smith'],['收好物品，回城補給','market'],['追查寶箱原本屬於誰','well']]},
+runes:{chapter:'探索篇・古代文字',location:'月影山丘',title:'星辰留下的訊息',text:s=>`古代文字在你的注視下浮現淡淡光芒。你讀懂了其中一段：「門扉並非通往遠方，而是連接被遺忘的可能。」這些文字似乎與異界召喚有關，也暗示封印之下藏著一段被王國刻意抹去的歷史。`,choices:[['將文字記下，前往圖書館查證','library'],['回去質問露希亞是否早已知道','talk'],['尋找祭壇下方可能存在的入口','well'],['暫時離開，避免驚動未知存在','town']]},
+mirror:{chapter:'探索篇・鏡中異象',location:'月影山丘',title:'鏡片中的另一個自己',text:s=>`你的指尖觸碰鏡片，一瞬間，鏡面映出的不是現在的你，而是一座被黑霧吞沒的城堡。耳邊響起陌生聲音：「旅人，你的到來並非偶然。」鏡片隨即裂成細小光點，化作一道印記留在你的掌心。`,choices:[['回城尋找能解讀印記的人','library'],['向露希亞展示掌心的印記','talk'],['追尋幻象中的城堡方向','hill'],['先休息，等待印記的變化','rest']]},
+well:{chapter:'探索篇・古井之謎',location:'城郊古井',title:'井底傳來的回音',text:s=>`古井早已乾涸，井壁卻刻滿與祭壇相似的星形符號。當你靠近井口，一陣低沉回音從深處傳來，像是有人在另一端敲擊石壁。井邊散落著繩索、火把與一枚破碎的徽章。`,choices:[['使用繩索下井調查','ruins'],['先研究井邊的星形符號','runes'],['把徽章帶回公會詢問','guild'],['找同伴與工具後再來探索','market']]},
+smith:{chapter:'城鎮日常・鐵匠鋪',location:'火花鐵匠鋪',title:'火花與鋼鐵',text:s=>`鐵匠鋪裡火星四濺，矮人師傅拿起魔晶石仔細端詳。他說這些礦石能強化武器，但其中一顆帶有不穩定的魔力。師傅願意替你打造一件簡單裝備，只要你能替他找來一份稀有礦砂。`,choices:[['答應尋找稀有礦砂','ruins'],['請師傅檢查掌心的奇異印記','lore'],['詢問適合自己職業的裝備','market'],['先離開鐵匠鋪，前往公會','guild']]},
+library:{chapter:'探索篇・知識之門',location:'艾爾德大圖書館',title:'被封存的編年史',text:s=>`圖書館深處收藏著一本被鎖鏈封住的古老編年史。管理員發現你帶來的星形線索後，神情突然凝重。「這是星門教團的標記。很久以前，他們試圖打開通往異界的門，最後卻讓某種存在注意到了這個世界。」`,choices:[['請管理員解開編年史的封印','ruins'],['追問星門教團的下落','lore'],['將線索交給公會，尋求協助','guild'],['暫時離開圖書館，整理資訊','rest']]},
+ruins:{chapter:'第二章・古代遺跡',location:'沉眠遺跡',title:'沉眠之門',text:s=>`你循著線索來到古代遺跡。巨大的石門上鑲著與你掌心相同的星形符號，門縫裡透出藍白色光芒。當你靠近，石門發出低鳴，彷彿正在等待某個特定的人。\n\n你知道，跨過這道門後，冒險將走向更深的未知。`,choices:[['將掌心印記貼上石門','mirror'],['先在遺跡外仔細搜索','chest'],['返回城鎮準備充分後再來','town'],['尋找露希亞，一起解開石門謎團','talk']]}
+};
+function baseStats(job){let v={hp:100,mp:60,atk:10,agi:10};if(job==='劍士'){v.hp+=15;v.atk+=3}else if(job==='魔法師'){v.mp+=25;v.atk+=4}else if(job==='遊俠'){v.agi+=5;v.atk+=2}else if(job==='神官'){v.hp+=5;v.mp+=15}return v}
+function startGame(){let name=document.getElementById('heroName').value.trim()||'無名旅人';state={name,job:selectedJob,...baseStats(selectedJob),level:1,exp:0,scene:'start',turn:0,log:[],flags:[]};document.getElementById('setup').classList.add('hidden');document.getElementById('game').classList.remove('hidden');render()}
+function addLog(t){state.log.unshift(t);state.log=state.log.slice(0,8)}
+function choose(next,index){if(!state)return;const s=scenes[state.scene];const choice=s.choices[index][0];state.turn++;addLog(`第 ${state.turn} 步｜${s.title}：${choice}`);state.exp+=8;if(state.turn%4===0){state.level++;state.hp=Math.min(state.hp+8,150);state.mp=Math.min(state.mp+8,120);addLog(`能力提升！目前等級 Lv.${state.level}`)}
+if(next==='fight'){state.hp=Math.max(1,state.hp-7);state.atk+=1;addLog('經過戰鬥，你的攻擊技巧略有提升。')}
+if(next==='heal'){state.hp=Math.min(state.hp+10,150)}
+if(next==='magic'){state.mp=Math.max(0,state.mp-3);state.atk+=1}
+if(next==='rest'){state.hp=Math.min(state.hp+18,150);state.mp=Math.min(state.mp+15,120)}
+if(next==='train'){state.atk+=1;state.exp+=4}
+if(next==='chest'){state.exp+=4;state.flags.push('古代遺物線索')}
+state.scene=next;render()}
+function render(){if(!state)return;document.getElementById('statName').textContent=state.name;document.getElementById('statJob').textContent=state.job;document.getElementById('statHp').textContent=state.hp;document.getElementById('statMp').textContent=state.mp;document.getElementById('chapterTag').textContent=scenes[state.scene].chapter;document.getElementById('locationTag').textContent=scenes[state.scene].location;document.getElementById('levelTag').textContent=`Lv.${state.level} · ATK ${state.atk}`;document.getElementById('sceneTitle').textContent=scenes[state.scene].title;document.getElementById('storyText').textContent=scenes[state.scene].text(state);const choices=document.getElementById('choices');choices.innerHTML='';scenes[state.scene].choices.forEach((c,i)=>{const b=document.createElement('button');b.type='button';b.className='choice';b.innerHTML=`<span class="num">${i+1}</span><span>${c[0]}</span>`;b.addEventListener('click',()=>choose(c[1],i));choices.appendChild(b)});const log=document.getElementById('log');log.innerHTML=state.log.length?state.log.map(x=>`<p>${escapeHtml(x)}</p>`).join(''):'<p>你的故事即將展開……</p>'}
+function escapeHtml(t){return t.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+document.getElementById('startBtn').addEventListener('click',()=>{try{startGame()}catch(err){document.getElementById('appStatus').textContent='遊戲啟動失敗：請下載檔案後使用 Safari 或 Chrome 開啟。';console.error(err)}});
+document.getElementById('appStatus').textContent='互動功能已載入。請先選職業，再按「踏入異世界」。';
+document.getElementById('saveBtn').addEventListener('click',()=>{try{localStorage.setItem('isekaiRpgSave',JSON.stringify(state));document.getElementById('saveNotice').textContent='進度已儲存在這個瀏覽器。'}catch(e){document.getElementById('saveNotice').textContent='無法儲存：瀏覽器可能限制了本機儲存功能。'}});
+document.getElementById('loadBtn').addEventListener('click',()=>{try{const raw=localStorage.getItem('isekaiRpgSave');if(!raw){document.getElementById('saveNotice').textContent='目前沒有找到儲存紀錄。';return}state=JSON.parse(raw);document.getElementById('setup').classList.add('hidden');document.getElementById('game').classList.remove('hidden');render();document.getElementById('saveNotice').textContent='已讀取儲存進度。'}catch(e){document.getElementById('saveNotice').textContent='讀取失敗，儲存資料可能已損毀。'}});
+document.getElementById('restartBtn').addEventListener('click',()=>{if(confirm('確定要重新建立角色？尚未儲存的進度將會失去。')){state=null;document.getElementById('game').classList.add('hidden');document.getElementById('setup').classList.remove('hidden');document.getElementById('saveNotice').textContent=''}});
+</script>
+</body>
+</html>
